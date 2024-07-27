@@ -71,7 +71,7 @@ class UserAPITestCase(TestCase):
         response = self.client.delete(f'/user/{self.normal_user.id}/')
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
         self.client.logout()
-        self.client.login(username='admin', password='pass')
+        self.client.login(username='staffuser', password='staffpass')
         response = self.client.delete(f'/user/{self.normal_user.id}/')
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
 
