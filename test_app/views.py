@@ -29,9 +29,9 @@ class UserViewSet(viewsets.ModelViewSet):
         username = request.query_params.get('username', None)
         is_verified = request.query_params.get('is_verified', None)
 
-        if (username := username):
+        if username:
             queryset = queryset.filter(username__icontains=username)
-        if (is_verified := is_verified) is not None:
+        if is_verified is not None:
             queryset = queryset.filter(account__is_verified=is_verified)
 
 
